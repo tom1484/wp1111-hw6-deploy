@@ -74,6 +74,7 @@ const Body = () => {
   };
 
   const handleAdd = async () => {
+    console.log(process.env.REACT_APP_API_BASE_URL);
     const {
       data: { message, card },
     } = await axios.post('/card', {
@@ -113,78 +114,78 @@ const Body = () => {
         </Tabs>
       </Box>
       <TabPanel value={ tabKey } index={0}> */}
-        <Row>
-          {/* Could use a form & a library for handling form data here such as Formik, but I don't really see the point... */}
-          <TextField
-            className={classes.input}
-            placeholder="Name"
-            value={name}
-            onChange={handleChange(setName)}
-          />
-          <TextField
-            className={classes.input}
-            placeholder="Subject"
-            style={{ width: 240 }}
-            value={subject}
-            onChange={handleChange(setSubject)}
-          />
-          <TextField
-            className={classes.input}
-            placeholder="Score"
-            value={score}
-            onChange={handleChange(setScore)}
-            type="number"
-          />
-          <Button
-            className={classes.button}
-            variant="contained"
-            color="primary"
-            disabled={!name || !subject}
-            onClick={handleAdd}
-          >
-            Add
-          </Button>
-        </Row>
+      <Row>
+        {/* Could use a form & a library for handling form data here such as Formik, but I don't really see the point... */}
+        <TextField
+          className={classes.input}
+          placeholder="Name"
+          value={name}
+          onChange={handleChange(setName)}
+        />
+        <TextField
+          className={classes.input}
+          placeholder="Subject"
+          style={{ width: 240 }}
+          value={subject}
+          onChange={handleChange(setSubject)}
+        />
+        <TextField
+          className={classes.input}
+          placeholder="Score"
+          value={score}
+          onChange={handleChange(setScore)}
+          type="number"
+        />
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="primary"
+          disabled={!name || !subject}
+          onClick={handleAdd}
+        >
+          Add
+        </Button>
+      </Row>
       {/* </TabPanel>
       
       <TabPanel value={ tabKey } index={1}> */}
-        <Row>
-          <StyledFormControl>
-            <FormControl component="fieldset">
-              <RadioGroup
-                row
-                value={queryType}
-                onChange={handleChange(setQueryType)}
-              >
-                <FormControlLabel
-                  value="name"
-                  control={<Radio color="primary" />}
-                  label="Name"
-                />
-                <FormControlLabel
-                  value="subject"
-                  control={<Radio color="primary" />}
-                  label="Subject"
-                />
-              </RadioGroup>
-            </FormControl>
-          </StyledFormControl>
-          <TextField
-            placeholder="Query string..."
-            value={queryString}
-            onChange={handleChange(setQueryString)}
-            style={{ flex: 1 }}
-          />
-          <Button
-            className={classes.button}
-            variant="contained"
-            color="primary"
-            disabled={!queryString}
-            onClick={handleQuery}
-          >
-            Query
-          </Button>
-        </Row>
+      <Row>
+        <StyledFormControl>
+          <FormControl component="fieldset">
+            <RadioGroup
+              row
+              value={queryType}
+              onChange={handleChange(setQueryType)}
+            >
+              <FormControlLabel
+                value="name"
+                control={<Radio color="primary" />}
+                label="Name"
+              />
+              <FormControlLabel
+                value="subject"
+                control={<Radio color="primary" />}
+                label="Subject"
+              />
+            </RadioGroup>
+          </FormControl>
+        </StyledFormControl>
+        <TextField
+          placeholder="Query string..."
+          value={queryString}
+          onChange={handleChange(setQueryString)}
+          style={{ flex: 1 }}
+        />
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="primary"
+          disabled={!queryString}
+          onClick={handleQuery}
+        >
+          Query
+        </Button>
+      </Row>
       {/* </TabPanel> */}
       <ContentPaper variant="outlined">
         {messages.map((m, i) => (

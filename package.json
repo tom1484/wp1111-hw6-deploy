@@ -6,5 +6,8 @@
   "scripts": {
     "start": "cd frontend && yarn start",
     "server": "cd backend && yarn server"
+  },
+  "dependencies": {
+    "fs": "^0.0.1-security"
   }
 }
